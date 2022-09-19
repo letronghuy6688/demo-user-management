@@ -1,6 +1,6 @@
 <?php
 
-// file đăng ký tài khoản
+// file đăng ký 
 if (!defined('_INCODE')) die('Access Deined....');
 $data = [
     'pageTile' => '新規登録'
