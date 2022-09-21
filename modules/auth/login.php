@@ -24,7 +24,7 @@ if (isPost()) {
         $password = $body['password'];
 
         // user information = email
-        $userQuery = firstRaw("SELECT id, password FROM user WHERE email ='$email'");
+        $userQuery = firstRaw("SELECT id, password FROM user WHERE email ='$email' AND status=1");
 
         if (!empty($userQuery)) {
             $passwordHash = $userQuery['password'];
@@ -56,7 +56,7 @@ if (isPost()) {
                 setFlashData('msg-type', 'danger');
             }
         } else {
-            setFlashData('msg', 'メールアドレス　未登録です！　新規登録してください。');
+            setFlashData('msg', 'メールアドレス　未登録です！　あるいはアクティブ化されていません！');
             setFlashData('msg-type', 'danger');
         }
     } else {
