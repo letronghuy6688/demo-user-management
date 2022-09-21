@@ -1,5 +1,7 @@
 <?php
 
+date_default_timezone_set('Asia/Tokyo');
+
 const _MODULE_DEFAULT = 'home';
 const _ACTION_DEFAULT = 'lists';
 

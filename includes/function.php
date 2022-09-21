@@ -207,11 +207,44 @@ function isLogin()
         $tokenLogin = getSession('logintoken');
         $queryToken = firstRaw("SELECT userID FROM login_token WHERE token= '$tokenLogin'");
         if (!empty($queryToken)) {
-            $checkLogin = true;
+            // $checkLogin = true;
+            $checkLogin = $queryToken;
         } else {
             removeSession('logintoken');
         }
     }
 
     return $checkLogin;
+}
+
+
+//　１５分後　自動ログアウト
+function autoLogout()
+{
+    $allUser = getRaw("SELECT * FROM user WHERE status=1");
+
+    if (!empty($allUser)) {
+        foreach ($allUser as $user) {
+
+            $now = date('Y-m-d H:i:s');
+
+            $before = $user['lastActivity'];
+
+            $diff = strtotime($now) - strtotime($before);
+
+            $diff = floor($diff / 60);
+
+            if ($diff >= 15) {
+                delete('login_token', "userID=" . $user['id']);
+            }
+        }
+    }
+}
+
+
+// save time last activity 
+function saveActivity()
+{
+    $userId = isLogin()['userID']; // dùg hàm islogin để lấy ra userId
+    updateData('user', ['lastActivity' => date('Y-m-d H:i:s')], "id='$userId'");
 }

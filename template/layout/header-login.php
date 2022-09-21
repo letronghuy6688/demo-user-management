@@ -1,6 +1,8 @@
 <?php
 if (!defined('_INCODE')) die('Access Deined....');
 
+
+autoLogout(); //　１５分後　自動ログアウト
 ?>
 
 <html>

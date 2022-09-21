@@ -1,5 +1,9 @@
 <?php
 
+
+
+
+
 // file đăng nhập 
 if (!defined('_INCODE')) die('Access Deined....');
 
@@ -25,6 +29,7 @@ if (isPost()) {
 
         // user information = email
         $userQuery = firstRaw("SELECT id, password FROM user WHERE email ='$email' AND status=1");
+
 
         if (!empty($userQuery)) {
             $passwordHash = $userQuery['password'];

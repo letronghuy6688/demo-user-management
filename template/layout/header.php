@@ -1,6 +1,10 @@
 <?php
 if (!defined('_INCODE')) die('Access Deined....');
 
+autoLogout(); //　１５分後　自動ログアウト
+
+saveActivity(); // 最後　稼働
+
 
 //check Login Status
 if (!isLogin()) {
@@ -8,12 +12,6 @@ if (!isLogin()) {
     redirect('?module=auth&action=login');
 }
 
-// if (!empty(getBody())) {
-//     $body = getBody();
-//     echo '<pre>';
-//     print_r($body);
-//     echo '</pre>';
-// }
 
 ?>
 
