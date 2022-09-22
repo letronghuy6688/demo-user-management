@@ -9,6 +9,9 @@ saveActivity(); // 最後　稼働
 //check Login Status
 if (!isLogin()) {
 
+    $user = isLogin()['userID'];
+
+
     redirect('?module=auth&action=login');
 }
 
