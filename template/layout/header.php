@@ -1,18 +1,17 @@
 <?php
 if (!defined('_INCODE')) die('Access Deined....');
 
+saveActivity(); // 最後　稼働 保存
+
 autoLogout(); //　１５分後　自動ログアウト
-
-saveActivity(); // 最後　稼働
-
 
 //check Login Status
 if (!isLogin()) {
-
-    $user = isLogin()['userID'];
-
-
     redirect('?module=auth&action=login');
+} else {
+    $userid = isLogin()['userID'];
+
+    $query = firstRaw("SELECT fullname FROM user WHERE id='$userid'");
 }
 
 
@@ -48,7 +47,7 @@ if (!isLogin()) {
                         <li class="nav-item dropdown profile ">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
                                 aria-expanded="false">
-                                Hi, xin chao
+                                こんにちは, <?php echo $query['fullname']; ?> 様
                             </a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="#">プロファイル</a>

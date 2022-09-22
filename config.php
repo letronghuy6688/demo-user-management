@@ -11,7 +11,7 @@ const _INCODE = true;
 
 
 // thiết lập host 
-define('_WEB_HOST_ROOT', 'http://' . $_SERVER['HTTP_HOST'] . '/PHP7.4.28/demo_user_management'); // địa chỉ trang chủ 
+define('_WEB_HOST_ROOT', 'http://' . $_SERVER['HTTP_HOST'] . '/PHP7.4.28/demo'); // địa chỉ trang chủ 
 define('_WEB_HOST_TEMPLATE', _WEB_HOST_ROOT . '/template'); // địa chỉ đến file css 
 
 

@@ -143,3 +143,10 @@ function getRows($sql)
         return $statement->rowCount();
     }
 }
+
+// user インフォメーション　取る
+// function getInformationUser($userID)
+// {
+//     $info = firstRaw("SELECT * FROM user WHERE id = '$userID'");
+//     return $info;
+// }
