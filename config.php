@@ -20,8 +20,9 @@ define('_WEB_PATH_ROOT', __DIR__);
 define('_WEB_PATH_TEMPLATE', _WEB_PATH_ROOT . '/template');
 
 // thiết lập kết nối database
-const _HOST = 'localhost';
-const _USER = 'root';
-const _PASS = '';
+const _HOST = 'db-mysql-huy-do-user-12553158-0.b.db.ondigitalocean.com:25060';
+const _USER = 'doadmin';
+const _PASS = 'AVNS_bRNHRi0t5hD76ygF3xO';
 const _DB = 'users_management_demo';
+// const _PORT = 25060;
 const _DRIVER = 'mysql';
